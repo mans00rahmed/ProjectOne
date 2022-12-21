@@ -1,0 +1,9 @@
+.badge {
+  margin: 0.1px;
+}
+.dropdown {
+  cursor: pointer;
+}
+.badge{
+  cursor:auto
+}
