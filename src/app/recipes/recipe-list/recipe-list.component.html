@@ -1,0 +1,33 @@
+<div class="row">
+  <div
+    class="d-grid gap-2"
+    style="border-bottom-style: inset; margin-bottom: 1%"
+  >
+    <button
+      class="btn btn-success"
+      (click)="onNewRecipe()"
+      
+      style="margin-bottom: 2%"
+    >
+      New Recipe
+    </button>
+  </div>
+  <br /><br />
+  <div class="row">
+    <div
+      class="col-xs-12"
+      style="border: 2px solid gainsboro; border-radius: 7px; margin-top: 1%"
+    >
+      <app-recipe-item
+        *ngFor="let recipeEl of recipes | async;"
+        [recipe]="recipeEl"
+      ></app-recipe-item>
+    </div>
+  </div>
+</div>
+
+<script>
+  function alert(a) {
+    alert(a);
+  }
+</script>

@@ -1,0 +1,29 @@
+<a
+  class="list-group-item clearfix"
+  [routerLink]="[recipe.recipeId]"
+  routerLinkActive="active"
+>
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">
+      {{ recipe.recipeName }}
+    </h4>
+    <h5 class="list-group-item-text">
+      {{ recipe.description }}
+    </h5>
+    <li
+      class="list-group-item-text"
+      *ngFor="let ingredient of recipe.ingredients"
+    >
+      {{ ingredient.name }}
+    </li>
+  </div>
+  <span class="pull-left">
+    <img
+      src="{{ recipe.imageUrl }}"
+      alt="{{ recipe.recipeName }}"
+      class="img-responsive"
+      style="max-height: 100px"
+    />
+  </span>
+</a>
+<hr />

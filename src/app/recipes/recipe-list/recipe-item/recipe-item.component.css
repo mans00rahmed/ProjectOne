@@ -1,0 +1,8 @@
+a {
+  display: flex;
+  padding: 2%;
+  margin-top: 10px;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
