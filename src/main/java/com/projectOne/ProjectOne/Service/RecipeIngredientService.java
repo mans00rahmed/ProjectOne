@@ -54,4 +54,8 @@ public class RecipeIngredientService {
 	public List<RecipeIngredientDto> AllRecipeIngredient() {
 		return recipeIngredientRepo.findAll().stream().map(this::convertEntityToDto).collect(Collectors.toList());
 	}
+	
+	public void deleteRecipeIngredientById(int id) {
+		recipeIngredientRepo.deleteById(id);
+	}
 }

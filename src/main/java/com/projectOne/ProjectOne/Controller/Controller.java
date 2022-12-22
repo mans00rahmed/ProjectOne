@@ -1,9 +1,12 @@
 package com.projectOne.ProjectOne.Controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -73,4 +76,28 @@ public class Controller {
 	public RecipeIngredient AddRecipeIngredient(@RequestBody RecipeIngredientDto recipeIngredientDto) {
 		return recipeIngredientService.AddRecipeIngredient(recipeIngredientDto);
 	};
+
+	@DeleteMapping("/delete-recipe/{id}")
+	public Map<String, Boolean> deleteRecipe(@PathVariable int id) {
+		recipeService.deleteRecipeById(id);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return response;
+	}
+
+	@DeleteMapping("/delete-ingredient/{id}")
+	public Map<String, Boolean> deleteIngredient(@PathVariable int id) {
+		ingredientService.deleteIngredientById(id);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return response;
+	}
+
+	@DeleteMapping("/delete-recipe-ingredient/{id}")
+	public Map<String, Boolean> deleteRecipeIngredient(@PathVariable int id) {
+		recipeIngredientService.deleteRecipeIngredientById(id);
+		Map<String, Boolean> response = new HashMap<>();
+		response.put("deleted", Boolean.TRUE);
+		return response;
+	}
 };

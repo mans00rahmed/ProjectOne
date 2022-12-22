@@ -39,4 +39,8 @@ public class IngredientService {
 		}
 		return null;
 	}
+	
+	public void deleteIngredientById(int id) {
+		ingredientRepo.deleteById(id);
+	}
 }

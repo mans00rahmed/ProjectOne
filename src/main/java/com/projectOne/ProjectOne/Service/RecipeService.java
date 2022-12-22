@@ -60,4 +60,8 @@ public class RecipeService {
 		}
 		return null;
 	}
+
+	public void deleteRecipeById(int id) {
+		recipeRepo.deleteById(id);
+	}
 }
