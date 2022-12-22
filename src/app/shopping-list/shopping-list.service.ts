@@ -7,7 +7,7 @@ import { Ingredient } from '../models/ingredient.model';
 @Injectable()
 export class ShoppingListService {
   selectedOption: string;
-  startedEditing = new Subject<number>();
+  startedEditing = new Subject<Number>() ;
   ingredientsChanged = new Subject<Ingredient[]>();
 
   private baseUrl = 'http://localhost:8080/api/v1';
@@ -26,19 +26,8 @@ export class ShoppingListService {
     return this.http.post(`${this.baseUrl}/add-ingredient`, ingredient);
   }
 
-  //   ingredients: Ingredient[] = [];
-  //   constructor(private recipeSerice:RecipeService){
-  //     this.ingredients=this.recipeSerice.getIngredients()
-  //   }
-
-  //   addIngredients(ingredients: Ingredient[]) {
-  //     ingredients.push(...this.ingredients);
-
-  //    this.ingreditentsChanged.emit(this.ingredients.slice());
-  //   }
-
-  //   addIngredient(ingredient: Ingredient) {
-  //     this.ingredients.push(ingredient);
-  //     this.ingredientsChanged.next(this.ingredients.slice());
-  //   }
+  deleteIngredient(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/delete-ingredient/${id}`, { responseType: 'text' });
+  }
+  
 }

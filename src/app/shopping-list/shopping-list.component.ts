@@ -21,7 +21,7 @@ export class ShoppingListComponent implements OnInit {
     this.reloadData();
   }
 
-  reloadData(value?:any) {
+  reloadData(value?: any) {
     this.ingredients = this.shoppingListService.getAllIngredients();
     console.log(this.ingredients);
   }
@@ -29,10 +29,10 @@ export class ShoppingListComponent implements OnInit {
 
   onEditItem(index: number) {
     this.shoppingListService.startedEditing.next(index);
-  }
+  } 
 
   /**  This is the list which will be mappped on the recipeService's method getIngerdiets,
-   * which is returning the list of ingredient s from the main object of recipeService
+   * which is returning the list of ingredients from the main object of recipeService
    * This is taking accessing data directly from recipeService Service.
    **/
 }

@@ -67,24 +67,8 @@ export class RecipeEditComponent implements OnInit {
               })
             );
           }
-
-          // this.recipeForm.controls['ingredients'].setValue(recipeIngredients);
-          // recipeName = recipe.recipeName;
-          // recipeImagePath = recipe.imageUrl;
-          // recipeDescription = recipe.description;
         },
       });
-
-      // if (recipe['ingredients']) {
-      // for (let ingredient of recipe.ingredients) {
-      //   recipeIngredients.push(
-      //     new FormGroup({
-      //       name: new FormControl(ingredient.name),
-      //       amount: new FormControl(ingredient.amount),
-      //     })
-      //   );
-      // }
-      //}
     }
 
     this.recipeForm = new FormGroup({
@@ -101,6 +85,7 @@ export class RecipeEditComponent implements OnInit {
     delete value.imagePath;
     value.recipeName = value.name;
     delete value.name;
+
     if (this.editMode) {
       this.recipeService.updateRecipe(this.id, this.recipeForm.value);
     } else {

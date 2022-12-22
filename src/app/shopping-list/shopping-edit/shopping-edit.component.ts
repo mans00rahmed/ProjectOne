@@ -45,7 +45,7 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
       this.editedItemIndex = index;
       this.editMode = true;
       this.editedItem = this.shoppingListService.getIngredientById(
-        this.editedItemIndex + 3
+        this.editedItemIndex
       );
       this.editedItem.subscribe((response) => {
         (this.name = response.name), (this.amount = response.amount);
@@ -96,10 +96,9 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
   }
 
   deleteIngredient(index: number) {
-    this.recipeService.ingredients.splice(index, 1);
-    this.shoppingListService.ingredientsChanged.next(
-      this.recipeService.ingredients.slice()
-    );
+    this.shoppingListService.deleteIngredient(index).subscribe((response) => {
+      console.log(response);
+    });
   }
 
   onDelete() {

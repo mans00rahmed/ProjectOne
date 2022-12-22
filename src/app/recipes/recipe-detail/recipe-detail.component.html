@@ -29,7 +29,9 @@
           >
         </li>
         <li>
-          <a class="dropdown-item">Delete {{ recipe?.recipeName }}</a>
+          <a class="dropdown-item" (click)="onDeleteRecipe(recipe.recipeId)"
+            >Delete {{ recipe?.recipeName }}</a
+          >
         </li>
       </ul>
     </div>

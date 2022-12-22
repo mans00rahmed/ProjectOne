@@ -51,7 +51,10 @@ export class RecipeService {
   addRecipeIngredient(recipeIngredient:Object):Observable<Object>{
     return this.http.post(`${this.baseUrl}/all-recipe-ingredient`,recipeIngredient)
   }
-  
+  deleteRecipe(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/delete-recipe/${id}`, { responseType: 'text' });
+  }
+
   /**
    * WITHOUT BACKEND FUNCTIONS BELOW
    **/
