@@ -3,17 +3,21 @@
   style="background-color: white; padding: 5%; border-radius: 4pc"
 >
   <div class="xs 10">
-    <app-shopping-edit (ingredientInserted)="reloadData($event)" ></app-shopping-edit>
+    <app-shopping-edit
+      (ingredientInserted)="reloadData($event)"
+    ></app-shopping-edit>
     <hr />
     <ul class="list-group">
       <a
         class="list-group-item"
-        style="cursor: pointer"
+        style="cursor: pointer; display: flex"
         *ngFor="let ingredient of ingredients | async; let i = index"
         (click)="onEditItem(ingredient.ingredientId)"
       >
-        {{ ingredient.name }}({{ ingredient.amount }})</a
-      >
+        <p style="display: block; margin-right: 50%">
+          {{ ingredient.ingredientId }} | {{ ingredient.name }} in amount of {{ ingredient.amount }}
+        </p>
+      </a>
     </ul>
   </div>
 </div>

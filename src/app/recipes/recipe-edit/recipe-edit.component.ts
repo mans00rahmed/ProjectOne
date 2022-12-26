@@ -18,7 +18,7 @@ export class RecipeEditComponent implements OnInit {
   recipeForm: FormGroup;
   ingredientsForm: FormGroup;
   @Output() recipetInserted: EventEmitter<any> = new EventEmitter<any>();
-  arrayOfIngredients: Observable<Ingredient>;
+  arrayOfIngredients = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -35,9 +35,13 @@ export class RecipeEditComponent implements OnInit {
     });
 
     this.sLService.getAllIngredients().subscribe((response) => {
-      this.arrayOfIngredients = response;
-      console.log(this.arrayOfIngredients.forEach);
+      for (let index = 0; index < response.length; index++) {
+        const element = response[index];
+        this.arrayOfIngredients.push(element['name']);
+      }
     });
+
+    console.log(this.arrayOfIngredients[1]);
   }
 
   onSave() {}
@@ -92,7 +96,6 @@ export class RecipeEditComponent implements OnInit {
       this.recipeService.addRecipes(value).subscribe((response) => {
         console.log(response);
       });
-
       console.log(this.recipeForm.value);
     }
     this.onCancel();
