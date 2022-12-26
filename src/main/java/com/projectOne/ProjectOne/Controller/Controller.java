@@ -25,7 +25,7 @@ import com.projectOne.ProjectOne.models.Recipe;
 import com.projectOne.ProjectOne.models.RecipeIngredient;
 
 @RestController
-@CrossOrigin // angular
+@CrossOrigin
 @RequestMapping("/api/v1")
 public class Controller {
 	@Autowired
